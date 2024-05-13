@@ -1,0 +1,712 @@
+page.ejs------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+    <h1>Main Page</h1>
+    <% for(var i=0;i<userData.length;i++){ %>
+        <%= userData[i].name %><br>
+        <% } %>
+</body>
+</html>
+
+
+openpage.ejs----------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Openpage</title>
+      <!--background-color: 730px;-->
+    <style>
+        body{
+            background-color:rgba(255, 211, 165, 1);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: linear-gradient(pink,green);
+        }
+        .one{
+            margin:300px;
+            background-color: rgba(253, 101, 133, 1);
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+    <h1>Get signup to know more about  <b style="font-size: 40px;color:darkgreen;">EXPLORE FOODZZ</b></h1>
+    <button style="background-color: skyblue;">
+    <a href="http://localhost:3000/signin"><b>Sign In</b></a><br></button>
+   <button style="background-color: skyblue;"><a href="http://localhost:3000/signup"><b>Sign Up</b></a><br></button>
+</div>
+</body>
+</html>
+
+
+signin.ejs-------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(253, 101, 133, 1) 0%,
+    rgba(255, 211, 165, 1) 90%
+  );
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+  width: 400px;
+  height: 400px;
+  background-color: #ffffff;
+  padding: 10px 30px;
+}
+
+.card_title {
+  text-align: center;
+  padding: 10px;
+}
+
+.card_title h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.form input {
+  margin: 10px 0;
+  width: 100%;
+  background-color: #e2e2e2;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+.form button {
+  background-color: #4796ff;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 15px;
+  width: 100%;
+}
+
+.card_terms {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.card_terms input[type="checkbox"] {
+  background-color: #e2e2e2;
+}
+
+.card_terms span {
+  margin: 5px;
+  font-size: 13px;
+}
+
+.card a {
+  color: #4796ff;
+  text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+          <div class="card_title">
+            <h1>Login Form</h1>
+          </div>
+          <div class="form">
+          <form action="/signinsubmit" method="GET">
+            <input type="email" name="email" placeholder="Email" id="email" />
+            <input type="password" name="password" placeholder="Password" id="password" />
+            <button>Submit</button>
+            </form>
+          </div>
+          <div class="card_terms">
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+
+
+signup.ejs---------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(253, 101, 133, 1) 0%,
+    rgba(255, 211, 165, 1) 90%
+  );
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+  width: 400px;
+  height: 400px;
+  background-color: #ffffff;
+  padding: 10px 30px;
+}
+
+.card_title {
+  text-align: center;
+  padding: 10px;
+}
+
+.card_title h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.form input {
+  margin: 10px 0;
+  width: 100%;
+  background-color: #e2e2e2;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+.form button {
+  background-color: #4796ff;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 15px;
+  width: 100%;
+}
+
+.card_terms {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.card_terms input[type="checkbox"] {
+  background-color: #e2e2e2;
+}
+
+.card_terms span {
+  margin: 5px;
+  font-size: 13px;
+}
+
+.card a {
+  color: #4796ff;
+  text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+          <div class="card_title">
+            <h1>Registration Form</h1>
+          </div>
+          <div class="form">
+          <form action="/signupsubmit" method="GET">
+            <input type="text" name="First Name" id="firstname" placeholder="Firstname" />
+            <input type="text" name="Last Name" id="lastname" placeholder="Lastname" />
+            <input type="email" name="email" placeholder="Email" id="email" />
+            <input type="password" name="password" placeholder="Password" id="password" />
+            <button>Submit</button>
+            </form>
+          </div>
+          <div class="card_terms">
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+
+
+signedup.ejs---------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignedUp</title>
+</head>
+<body>
+    <h1>SignedUp Successfully</h1>
+    <h2>Go back to login.</h2>
+</body>
+</html>
+
+
+dashboard.ejs-----------------------
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Dashboard</title>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Explore Foodzz</title>
+	<style>
+        @import url(
+'https://fonts.googleapis.com/css?family=Big+Shoulders+Text:100, 300, 400, 500, 600, 700, 800, 900&display=swap');
+
+/* font-family: 'Big Shoulders Text', cursive; */
+.nav-flex-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	width: 100%;
+	padding: 0;
+}
+
+.nav-flex-row li {
+	text-decoration: none;
+	list-style-type: none;
+	padding: 20px 15px;
+}
+
+.nav-flex-row li a {
+	font-family: 'Big Shoulders Text', cursive;
+	color: rgba(253, 101, 133, 1);
+	font-size: 1.5em;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.nav-flex-row li a:hover {
+	background: #E7E7E7;
+}
+
+.section-intro {
+	height: 820px;
+	background-image: url(img/foddiee.png);
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.section-intro h1 {
+	text-align: center;
+	color: rgba(253, 101, 133, 1);
+	font-size: 4em;
+	font-weight: 700;
+}
+
+.section-intro header {
+	display: flex;
+	flex: 4;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.link-to-book-wrapper {
+	flex: 1;
+}
+
+.about-section {
+	display: flex;
+	align-items: center;
+	background-color: #f3f3f3c0;
+	padding: 50px 30px;
+}
+.one{
+	padding-left: 650px;
+}
+.link-to-book {
+	color: #ffffff;
+	display: block;
+	border: 2px solid #ffffff;
+	padding: 5px 10px;
+}
+
+a.link-to-book:hover {
+	background-color: #ffffff;
+	color: #95999e;
+	text-decoration: none;
+}
+
+.about-section p,
+.about-section h3 {
+	text-align: center;
+	width: 60%;
+	margin: auto;
+	font-family: 'Big Shoulders Text', cursive;
+	font-size: 1.8em;
+	text-transform: uppercase;
+}
+
+.carousel-inner {
+	height: 700px;
+}
+
+.row-flex {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-column-form {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin: 30px 20px;
+}
+
+.btn.btn-primary {
+	font-family: 'Big Shoulders Text', cursive;
+	color: #ffffff;
+	background-color: #95999e;
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 5px 10px;
+	letter-spacing: 2px;
+	border: 0;
+}
+
+.btn.btn-primary:hover {
+	background-color: #747474;
+}
+
+.opening-time,
+.contact-address {
+	flex: 1;
+	margin: 30px 20px;
+	font-size: 1.2em;
+}
+
+.form-group p {
+	font-size: 1.2em;
+}
+
+.opening-time p span,
+.contact-address p span {
+	display: block;
+}
+
+@media (min-width:577px) and (max-width: 800px) {
+
+	.section-intro {
+		height: 500px;
+	}
+
+	.about-section p,
+	.about-section h3 {
+		font-size: 20px;
+	}
+
+	.carousel-inner {
+		height: auto;
+	}
+
+	.row-flex {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.section-intro {
+		height: 300px;
+	}
+
+	.about-section {
+		padding: 30px;
+	}
+
+	.section-intro h1 {
+		font-size: 2em;
+	}
+
+	.about-section p,
+	.about-section h3 {
+		font-size: 15px;
+	}
+
+	.carousel-inner {
+		height: auto;
+	}
+
+	.row-flex {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.row-flex h3 {
+		font-size: 25px;
+		text-align: center;
+	}
+
+	.form-group p {
+		font-size: 15px;
+	}
+
+	.opening-time p span,
+	.contact-address p span {
+		font-size: 15px;
+		text-align: center;
+	}
+
+}
+
+.carousel-item img {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+    </style>
+	<link rel="stylesheet"
+		href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity=
+"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a style="font-size:30px;" class="navbar-brand" href="#">
+		Explore Foodzz
+		</a>
+		<button class="navbar-toggler" type="button"
+				data-toggle="collapse" data-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#about">
+					Logged in as <img style="height:40px;" src="data:image/png;base64,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">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<section class="hero-section text-center">
+		<div class="container">
+			<h1 class="display-4 text-blue">
+			Welcome To Explore Foodzz
+			</h1>
+			<p class="lead text-blue">
+			Explore a world of flavors and 
+			indulge in culinary delights.
+			</p>
+			<a class="btn btn-primary btn-lg" href="#reservations">
+			Know more
+			</a>
+			<br><br>
+		</div>
+	</section>
+	<div class="one">
+		<form method="GET" action="recipeName">
+			<input type="text" name="q" placeholder="Search for recipes...">
+			<button type="submit">Search</button>
+		  </form>		  
+	</div>
+	<section id="about" class="about-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<p class="section-heading">
+					<b>Why Choose Us?</b>
+                    </p>
+					<p class="text-muted">
+				Discover the extraordinary at Explore Foodz.People use recipes to replicate foods they enjoy that they otherwise do not know how to make. Chefs use recipes to make sure a dish tastes the same each time it is ordered.
+					</p>
+				</div>
+				<div class="col-lg-6">
+					<img style="height:400px;width:1000px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvC1pGhW7_BRwnGuBguLE99tfA0faYflekCA&usqp=CAU"
+						class="img-fluid" alt="About Image">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="carousel-section">
+		<div id="carouselExampleControls"
+			class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img style="height:650px;max-width:90%;
+						display: block;
+						margin-left: auto;
+						margin-right: auto;
+					  " src="https://www.eatthis.com/wp-content/uploads/sites/4//media/images/ext/914442123/woman-cooking-tasting-food.jpg?quality=82&strip=1"
+						class="d-block w-100"
+						alt="Food Image 1">
+				</div>
+				<div class="carousel-item">
+					<img style="height:650px;max-width:90%;
+						display: block;
+						margin-left: auto;
+						margin-right: auto;
+					  " src="https://media.licdn.com/dms/image/D4D12AQEHujGYFVdLAQ/article-cover_image-shrink_720_1280/0/1680816088965?e=2147483647&v=beta&t=y-kE951-gWpM706fz7DNYmAZqap-O4QoXZ9HfepeZlQ"
+						class="d-block w-100"
+						alt="Food Image 2">
+				</div>
+				<div class="carousel-item">
+					<img style="height:650px;max-width:90%;
+						display: block;
+						margin-left: auto;
+						margin-right: auto;
+					  " src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoiaWhoLWhlYWx0aGNhcmUtYmVyaGFkXC9hY2NvdW50c1wvYzNcLzQwMDA2MjRcL3Byb2plY3RzXC8yMDlcL2Fzc2V0c1wvMjFcLzM4NDc3XC84NjgxMTY4YTQxNmVmZTEyNDIwYTc2YTFkZjhjNjdmMi0xNjU4MzAxMDMwLmpwZyJ9:ihh-healthcare-berhad:s553dJBjq5J3htcEKtyWHVL-fnKelw_ypxPRLJKjXGQ?format=webp"
+						class="d-block w-100"
+						alt="Food Image 3">
+				</div>
+			</div>
+			<a class="carousel-control-prev"
+			href="#carouselExampleControls" role="button"
+			data-slide="prev">
+				<span class="carousel-control-prev-icon" 
+					aria-hidden="true">
+				</span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next"
+			href="#carouselExampleControls"
+			role="button" data-slide="next">
+				<span class="carousel-control-next-icon"
+					aria-hidden="true">
+				</span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</section>
+	<!-- Footer Section -->
+	<footer class="footer-section text-center">
+		<div class="container">
+			<p>© 2023 Explore Foodzz. All rights reserved.</p>
+		</div>
+	</footer>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+dashboardInfo.ejs-------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search Results</title>
+    <style>
+        /* Add your CSS styles here */
+        .recipe {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .recipe img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recipe Search Results</h1>
+    <div id="recipes">
+        <% recipes.forEach(recipe => { %>
+            <div class="recipe">
+                <h2><%= recipe.label %></h2>
+                <img src="<%= recipe.image %>" alt="<%= recipe.label %>">
+                <p><a href="<%= recipe.url %>" target="_blank">View Recipe</a></p>
+            </div>
+        <% }) %>
+    </div>
+
+    <script>
+        // Add your JavaScript code here to fetch and display recipes
+        fetch('/search-recipes?q=<%= query %>')
+            .then(response => response.json())
+            .then(recipes => {
+                const recipesContainer = document.getElementById('recipes');
+                recipes.forEach(recipe => {
+                    const recipeElem = document.createElement('div');
+                    recipeElem.classList.add('recipe');
+                    recipeElem.innerHTML = `
+                        <h2>${recipe.label}</h2>
+                        <img src="${recipe.image}" alt="${recipe.label}">
+                        <p><a href="${recipe.url}" target="_blank">View Recipe</a></p>
+                    `;
+                    recipesContainer.appendChild(recipeElem);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching recipes:', error);
+            });
+    </script>
+</body>
+</html>
